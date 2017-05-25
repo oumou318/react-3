@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Baoquestion from './components/Baoquestion';
 //importing question component
-import QuestionsBao from './api/quizTime';
+import quiztime from './api/quiztime';
 
 class App extends Component {
 
@@ -55,7 +55,6 @@ shuffleArray(array) {
     render (
     <div className="App">
       <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <h2>BBBAO!!</h2>
       </div>
       <Question content="How old am I?" />
