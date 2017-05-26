@@ -132,6 +132,7 @@ class App extends Component {
         </div>
         {this.state.result ? this.renderResult() : this.renderTest()}
       </div>
+      
     );
   }
 
