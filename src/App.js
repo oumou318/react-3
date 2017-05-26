@@ -5,6 +5,8 @@ import quiztime from './api/quiztime';
 import Baoscore from './components/Baoscore';
 import answerChoices from './components/answerchoices';
 import Test from './components/Test.jsx';
+import Everything from './components/Everything';
+import QNA from './components/QNA';
 
 class App extends Component {
 
@@ -131,6 +133,8 @@ class App extends Component {
           <h2>BAO BAO BAO</h2>
         </div>
         {this.state.result ? this.renderResult() : this.renderTest()}
+        <Everything />
+        <QNA />
       </div>
       
     );

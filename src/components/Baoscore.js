@@ -1,5 +1,5 @@
 import React from 'react';
-import 
+
 
   function BaoScore(props) {
     return (

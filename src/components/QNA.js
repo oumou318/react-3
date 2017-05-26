@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
+import axios from 'axios'
+import Everything from './Everything'
 class Qna extends Component{
 	constructor(props){
 		super();
@@ -10,9 +10,11 @@ class Qna extends Component{
 	}
 	componentDidMount(){
 		axios.get("https://mighty-shelf-36224.herokuapp.com/")
-		.then(function(response) => {
+		.then((res) => {
 			this.setState({
-				quiz: response.data
+				quiz: res.data
+			}, () => {
+				console.log(this.state);
 			})
 		})
 	}
