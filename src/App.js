@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Baoquestion from './components/Baoquestion';
-//importing question component
 import quiztime from './api/quiztime';
 import Baoscore from './components/Baoscore';
 import answerChoices from './components/answerchoices';
-
+import Test from './components/Test.jsx';
 
 class App extends Component {
 
@@ -66,14 +65,14 @@ class App extends Component {
   }
 
   setUserAnswer(answer) {
-    const updatedAnswersCount = update(this.state.answersCount, {
+    {/*const updatedAnswersCount = update(this.state.answersCount, {
       [answer]: {$apply: (currentValue) => currentValue + 1}
     });
 
     this.setState({
         answersCount: updatedAnswersCount,
         answer: answer
-    });
+    });*/}
   }
 
   setNextQuestion() {
@@ -108,12 +107,12 @@ class App extends Component {
 
   renderTest() {
     return (
-      <test
+      <Test
         answer={this.state.answer}
-        answerOptions={this.state.answerOptions}
+        answerchoices={this.state.answerChoices}
         questionId={this.state.questionId}
         question={this.state.question}
-        questionTotal={answerChoices.length}
+        questionTotal={this.state.answerChoices.length}
         onAnswerSelected={this.handleAnswerSelected}
       />
     );
@@ -121,7 +120,7 @@ class App extends Component {
 
   renderResult() {
     return (
-      <Result quizResult={this.state.result} />
+      {/*<Result testResult={this.state.result} />*/}
     );
   }
 
@@ -129,9 +128,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>React Quiz</h2>
+          <h2>BAO BAO BAO</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
+        {this.state.result ? this.renderResult() : this.renderTest()}
       </div>
     );
   }
