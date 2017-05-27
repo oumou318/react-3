@@ -20,7 +20,7 @@ function Test(props) {
 
   Test.propTypes = {
     answer: React.PropTypes.string,
-    answerOptions: React.PropTypes.array,
+    answerChoices: React.PropTypes.array,
     counter: React.PropTypes.number,
     question: React.PropTypes.string,
     questionId: React.PropTypes.number,
