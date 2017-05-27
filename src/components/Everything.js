@@ -4,10 +4,18 @@ import Qna from './QNA';
 
 class Everything extends Component {
 	render(){
+			console.log(this.props.quiz)
+
 		return(
-			<div className="container">
-				<div className="question">{this.props.quiz}</div>
-			</div>
+			
+			
+		<div>
+				<div>{this.props.questionsNanswers}</div>
+				<div>{this.props.quiz}</div>
+
+		</div>
+			
+			
 		)
 	}
 }
