@@ -3,6 +3,8 @@ import Baoquestion from '../components/Baoquestion';
 import Baoscore from '../components/Baoscore';
 import answerchoices from '../components/answerchoices';
 
+
+
 function Test(props) {
     return (
        <div className="test">

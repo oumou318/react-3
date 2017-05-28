@@ -1,17 +1,21 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 function Score(props) {
 
   return (
-    <ReactCSSTransitionGroup
+    <div>
+    <CSSTransitionGroup 
       className="container result"
-      component="div"
+      transitionName="test"
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={300}>
     >
       <div>
         You prefer <strong>{props.testScore}</strong>!
       </div>
-    </ReactCSSTransitionGroup>
+    </CSSTransitionGroup>
+    </div>
   );
 
 }

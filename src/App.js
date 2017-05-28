@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
-import BaoQuestion from './components/BaoQuestion';
+import BaoQuestion from './components/Baoquestion';
 //component that will render question
-import quizTime from './api/quizTime';
+import quizTime from './api/quiztime';
 //api component containing the questions
-import Baoscore from './components/Baoscore';
+import BaoScore from './components/Baoscore';
 //component containing quiz score
 import answerChoices from './components/answerchoices';
 //component created to render multiple choices
 import Test from './components/Test.jsx';
+import Score from './components/score';
+import Aurinely from './components/demo';
 //component created for actual test div
 import axios from 'axios';
+//transition that for some reason is now not working
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
+
 
 class App extends Component {
 //extending component class
@@ -38,7 +45,7 @@ class App extends Component {
 
     };
 
-    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+    this.handleThisAnswerSelected = this.handleThisAnswerSelected.bind(this);
 //will bind answers to this
   }
 
@@ -83,14 +90,14 @@ class App extends Component {
   }
 
   setThisUserAnswer(answer) {
-    {/*const updatedAnswersCount = update(this.state.answersCount, {
+   const updatedAnswersCount = (this.state.answersCount, {
       [answer]: {$apply: (currentValue) => currentValue + 1}
     });
 
     this.setState({
         answersCount: updatedAnswersCount,
         answer: answer
-    });*/}
+    });
   }
 
   setThisToNextQuestion() {
@@ -99,7 +106,7 @@ class App extends Component {
 
     this.setState({
         BaoScore: BaoScore,
-        BaoQuestionId: BaoQuestionId,
+        // QuestionId: QuestionId,
         BaoQuestion: quizTime[counter].BaoQuestion,
         answerChoices: quizTime[counter].answers,
         answer: ''
@@ -136,9 +143,9 @@ class App extends Component {
     );
   }
 
-  renderResult() {
+  renderScore() {
     return (
-      {/*<Result testResult={this.state.result} />*/}
+    <Score testScore={this.state.score} />
     );
   }
 
@@ -146,14 +153,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>BAO BAO BAO</h2>
+        <h2>BAO BAO BAO</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderTest()}
-      </div>
-      
+        {this.state.result ? this.renderResult() : this.renderTest()}      </div>      
     );
   }
 
 }
-
 export default App;
+
+ReactDOM.render(<Aurinely/>, document.getElementById('test'))

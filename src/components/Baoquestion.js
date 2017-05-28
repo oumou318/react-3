@@ -1,5 +1,5 @@
-import React from 'react';
-//importing react 
+import React, { Component } from 'react';
+
 
   function Baoquestion(props) {
     return (
