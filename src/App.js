@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import BaoQuestion from './components/Baoquestion';
+import Baoquestion from './components/Baoquestion';
 //component that will render question
 import quizTime from './api/quiztime';
+import Score from './components/score';
 //api component containing the questions
 import BaoScore from './components/Baoscore';
 //component containing quiz score
-import answerChoices from './components/answerchoices';
+import AnswerChoices from './components/answerchoices';
 //component created to render multiple choices
 import Test from './components/Test.jsx';
-import Score from './components/score';
 import Aurinely from './components/demo';
+import PropTypes from 'prop-types';
 //component created for actual test div
 import axios from 'axios';
 //transition that for some reason is now not working
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 
 
@@ -51,29 +51,29 @@ class App extends Component {
 
   componentWillMount() {
 //initial lifecycle method called before initial render
-    const shuffledAnswerChoices = quizTime.map((question) => this.shuffleArray(question.answers));
+    const randomAnswerChoices = quizTime.map((question) => this.randomArray(question.answers));
 //will shuffle questions and answers..    
     this.setState({
       question: quizTime[0].question,
 //
-      answerChoices: shuffledAnswerChoices[0]
+      answerChoices: randomAnswerChoices[0]
     });
   }
 
-  shuffleArray(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+  randomArray(array) {
+    let presentIndex = array.length, currentValue, randomIndex;
 
     // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+    while (0 !== presentIndex) {
 
       // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
+      randomIndex = Math.floor(Math.random() * presentIndex);
+      presentIndex -= 1;
 
       // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      currentValue = array[presentIndex];
+      array[presentIndex] = array[randomIndex];
+      array[randomIndex] = currentValue;
     }
 
     return array;
@@ -83,7 +83,7 @@ class App extends Component {
     this.setUserAnswer(event.currentTarget.value);
 
     if (this.state.baoQuestionId < quizTime.length) {
-        setTimeout(() => this.setNextQuestion(), 200);
+        setTimeout(() => this.setNextBaoQuestion(), 200);
     } else {
         setTimeout(() => this.setResults(this.getResults()), 200);
     }
@@ -155,11 +155,13 @@ class App extends Component {
         <div className="App-header">
         <h2>BAO BAO BAO</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderTest()}      </div>      
+        {this.state.result ? this.renderResult() : this.renderTest()}
+        <Baoquestion />
+        <AnswerChoices />
+        <BaoScore />
+              </div>      
     );
   }
 
 }
 export default App;
-
-ReactDOM.render(<Aurinely/>, document.getElementById('test'))

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
   function BaoScore(props) {
     return (
@@ -9,8 +11,8 @@ import React from 'react';
   }
 
   BaoScore.propTypes = {
-    counter: React.PropTypes.number.isRequired,
-    total: React.PropTypes.number.isRequired
+    counter: PropTypes.number,
+    total: PropTypes.number,
   };
 
   export default BaoScore;
