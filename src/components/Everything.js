@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Qna from './QNA';
 
 
 class Everything extends Component {
 	render(){
+			console.log('here', this.props)
+
 		return(
 			<div className="container">
-				<div className="question">{this.props.quiz}</div>
+				<div>hi</div>
+				<div className="question">{this.props.quiz.question}</div>
 			</div>
 		)
 	}

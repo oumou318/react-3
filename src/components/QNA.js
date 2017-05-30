@@ -3,40 +3,47 @@ import axios from 'axios'
 import Everything from './Everything'
 class Qna extends Component{
 	constructor(props){
-		super();
+		super(props);
 		this.state = {
 			quiz: []
 		}
+		this.componentDidMount = this.componentDidMount.bind(this)
 	}
 	componentDidMount(){
-		axios.get("https://mighty-shelf-36224.herokuapp.com/")
+		console.log(this.props.quiz)
+		axios.get("https://afternoon-journey-45420.herokuapp.com")
 		.then((res) => {
+			console.log(res)
 			this.setState({
 				quiz: res.data
-			}, () => {
-				console.log(this.state);
 			})
 		})
 	}
-	render(){
-		let questionsNanswers;
-		{questionsNanswers = 
-			<div>
-			{this.state.quiz.map((i,j) =>
-				<Everything
-				key={j}
-				id={j+1}
-				quiz={i}
-				/>
-				)}
-			</div> 
-			}
-			return(
-				<div>
-					{questionsNanswers}
-				</div>
 
+	renderEverything() {
+		console.log('rendering')
+		return (
+				this.state.quiz.map((i,j) => {
+					return (
+						<Everything
+							key={j}
+							id={j+1}
+							quiz={i}
+						/>
+						)
+					}
 				)
+			)
+	}
+	render(){
+		console.log('hi')
+		return(
+
+			<div>
+				{this.renderEverything()}
+			</div>
+
+		)
 	}
 	
 }

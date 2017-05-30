@@ -4,7 +4,7 @@ import Baoquestion from './components/Baoquestion';
 import quiztime from './api/quiztime';
 import Baoscore from './components/Baoscore';
 import answerChoices from './components/answerchoices';
-import Test from './components/Test.jsx';
+import Test from './components/Test';
 import Everything from './components/Everything';
 import QNA from './components/QNA';
 
@@ -132,8 +132,7 @@ class App extends Component {
         <div className="App-header">
           <h2>BAO BAO BAO</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderTest()}
-        <Everything />
+          {this.renderTest()}
         <QNA />
       </div>
       
