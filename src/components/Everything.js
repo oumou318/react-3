@@ -9,6 +9,9 @@ class Everything extends Component {
 			<div className="container">
 				<div>hi</div>
 				<div className="question">{this.props.quiz.question}</div>
+				<div>{this.props.quiz.a}</div>
+				<div>{this.props.quiz.b}</div>
+				<div>{this.props.quiz.c}</div>
 			</div>
 		)
 	}
