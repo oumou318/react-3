@@ -16,7 +16,7 @@ function Test(props) {
          />
          <Baoquestion content={props.question} />
          <ul className="answerchoices">
-           <h1>Look at you.. :)</h1>
+           <h3>Bao is a multiple choice trivia quiz. Select answers to win 😁</h3>
          </ul>
        </div>
     );

@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 #root{
-  background-color: rgb(259,229,204);
   font-family: 'Montserrat', sans-serif;
   text-align: center;
 
@@ -13,62 +12,53 @@
 body {
   margin: 0;                                                                                j
   padding: 0;
-  background-color: rgb(259,229,204);
+  background-image: url(http://www.magic4walls.com/wp-content/uploads/2014/01/minimalism-art-vector-drawing-by-illustrator-clouds-background-bkue.jpg);
+  background-size: cover;
   font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
-.appheader{
-  background-color: rgb(255,229,204);
-  font-size: 80px;
-  font-family: 'Montserrat', sans-serif;
-
-}
-
-.container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: rgb(255,229,204);
+#baoquestion{
+  height: 200px;
+  width: 200px;
+  background-color: lightpink;
 }
 
 
-.container {
-    margin: 2.5rem auto;
 
 
-  }
 
 
 /* Result Component */
-.result {
+#score {
   padding: 1.5rem 2.5rem;
 }
 
 /* Quiz Component */
-.answerChoices {
+#answerChoices {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 /* QuestionCount Component */
-.baoscore {
+#baoscore {
   padding: 1.5rem 2.5rem 0;
   font-size: 14px;
 }
 
 /* Question Component */
-.question {
+#baoquestion {
   margin: 0;
   padding: 0.5rem 2.5rem 1.5rem 2.5rem;
 }
 
 /* AnswerOption Component */
-.answeerChoices {
+#answerChoices {
   border-top: 1px solid #eee;
 }
 
-.answerChoices:hover {
+#answerChoices:hover {
   background-color: #eefbfe;
 }
 
