@@ -18,10 +18,8 @@ var quizTime = [
   }
 ];
 
-export default quizTime;
 
-// ,
-//   {
+export default quizTime;
 //       question: "Who is the lead singer for the American rock band Pearl Jam?",
 //       answers: [
 //           {
@@ -114,3 +112,4 @@ export default quizTime;
 //           }
 //       ]
 //   }
+

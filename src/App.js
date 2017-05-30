@@ -26,8 +26,8 @@ class App extends Component {
 //calling parent component
 
     this.state = {
-      counter: 0,
-//counter set to zero at beginning of game
+      baoCount: 0,
+//baoCount set to zero at beginning of game
       baoQuestionId: 1,
 //question set to 1 at beginning of the game
       baoQuestion: '',
@@ -90,7 +90,7 @@ class App extends Component {
   }
 
   setThisUserAnswer(answer) {
-   const updatedAnswersCount = (this.state.answersCount, {
+   let updatedAnswersCount = (this.state.answersCount, {
       [answer]: {$apply: (currentValue) => currentValue + 1}
     });
 
@@ -101,28 +101,31 @@ class App extends Component {
   }
 
   setThisToNextQuestion() {
-    const counter = this.state.counter + 1;
-    const questionId = this.state.questionId + 1;
+//will render next question 
+    let baoCount = this.state.baoCount + 1;
+//current question +1 
+    let baoQuestionId = this.state.baoQuestionId + 1;
+//current question id +1 
 
     this.setState({
         BaoScore: BaoScore,
         // QuestionId: QuestionId,
-        BaoQuestion: quizTime[counter].BaoQuestion,
-        answerChoices: quizTime[counter].answers,
+        BaoQuestion: quizTime[baoCount].BaoQuestion,
+        answerChoices: quizTime[baoCount].answers,
         answer: ''
     });
   }
 
   getTheseScores() {
-    const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+    let baoAnsCount = this.state.baoAnsCount;
+    let baoAnsCountKeys = Object.keys(baoAnsCount);
+    let ansCountValues = baoAnsCountKeys.map((key) => baoAnsCount[key]);
+    let maxAnsCount = Math.max.apply(null, ansCountValues);
 
-    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+    return baoAnsCountKeys.filter((key) => baoAnsCount[key] === maxAnsCount);
   }
 
-  setResults(result) {
+  setTheseResults(result) {
     if (result.length === 1) {
       this.setState({ result: result[0] });
     } else {
@@ -134,11 +137,11 @@ class App extends Component {
     return (
       <Test
         answer={this.state.answer}
-        answerchoices={this.state.answerChoices}
-        questionId={this.state.questionId}
+        answerChoices={this.state.answerChoices}
+        baoQuestionId={this.state.baoQuestionId}
         question={this.state.question}
         questionTotal={this.state.answerChoices.length}
-        onAnswerSelected={this.handleAnswerSelected}
+        onAnswerSelected={this.handleTheseAnswerSelected}
       />
     );
   }
@@ -146,6 +149,11 @@ class App extends Component {
   renderScore() {
     return (
     <Score testScore={this.state.score} />
+    );
+  }
+renderRandomArray() {
+    return (
+    <randomArray testrandomArray={this.state.randomArray} />
     );
   }
 
