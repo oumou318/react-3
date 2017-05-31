@@ -14,16 +14,12 @@ class Qna extends Component{
 	componentDidMount(){
 		console.log(this.props.quiz)
 
-		axios.get("https://mighty-shelf-36224.herokuapp.com/")
+		axios.get("https://afternoon-journey-45420.herokuapp.com")
 
 		.then((res) => {
 			console.log(res)
 			this.setState({
 				quiz: res.data
-
-
-			}, () => {
-				console.log(this.state.quiz);
 
 			})
 		})
@@ -53,28 +49,28 @@ class Qna extends Component{
 				{this.renderEverything()}
 			</div>
 
-		const {quiz} = this.state
-		let questionsNanswers;
-		questionsNanswers = 
-			<div>
-				<div>
-			{/* i = object / elements / value of the arrray          j = index */}
+		// const {quiz} = this.state
+		// let questionsNanswers;
+		// questionsNanswers = 
+			// <div>
+				// <div>
+			/* i = object / elements / value of the arrray          j = index */
 
-					{this.state.quiz.map((i,j) =>
-					<Everything // key = index = j
-					key={j} // specify the key example i.question 
-					id={j + 1}
-					quiz={i}
-					/>
-					)}
-				</div>
-			</div> 
+					// {this.state.quiz.map((i,j) =>
+					// <Everything // key = index = j
+					// key={j} // specify the key example i.question 
+					// id={j + 1}
+					// quiz={i}
+					// />
+					// )}
+				// </div>
+			// </div> 
 			
-			return(
+			// return(
 
-				<div>
-					{questionsNanswers.quiz}
-				</div>
+				// <div>
+					// {questionsNanswers.quiz}
+				// </div>
 
 		)
 	}

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 
 class Everything extends Component {
-	render(){
+	render(){ 
 
-			// console.log('here', this.props)
+			console.log('here', this.props)
 
 		return(
 			<div className="container">
