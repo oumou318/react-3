@@ -7,6 +7,33 @@ import answerChoices from './components/answerchoices';
 import Test from './components/Test';
 import Everything from './components/Everything';
 import QNA from './components/QNA';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  NavLink
+} from 'react-router-dom'
+
+
+
+
+
+// i was gonna create routes here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class App extends Component {
 
