@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import failpage from './images/404page.jpg';
 import Baoquestion from './components/Baoquestion';
 import quiztime from './api/quiztime';
 import Baoscore from './components/Baoscore';
@@ -7,6 +8,9 @@ import answerChoices from './components/answerchoices';
 import Test from './components/Test';
 import Everything from './components/Everything';
 import QNA from './components/QNA';
+import One from './components/One';
+import One2 from './components/One2';
+import Post from './components/POST'
 import {
   BrowserRouter as Router,
   Route,
@@ -14,8 +18,12 @@ import {
   Link,
   NavLink
 } from 'react-router-dom'
-
-
+let Create = () => {return <div>Create compoment for axios.post</div>}
+let Quiz = () => {return <div><QNA /></div>}
+let Home = () => {return <div>Home what ya want the front page to look like</div>}
+let About = () => {return <div>About/Result page about can go on home</div>}
+let contacts = () => {return <div>Contact</div>}
+let Errors = () => {return <div>where you going?<img src={failpage}/></div>}
 
 
 
@@ -155,13 +163,27 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>BAO BAO BAO</h2>
-        </div>
-          {this.renderTest()}
-        <QNA />
-      </div>
+      <Router>
+        <div className="App">
+          <div className="App-header">
+           <h2>BAO BAO BAO</h2>
+          </div> {this.renderTest()}
+         {/* <QNA />*/}
+        {/* <One2 />*/}
+        <Post/>
+         <ul>
+          <li className="home"><Link to="/">Home</Link></li>&nbsp;&nbsp;
+          <li className="about"><Link to="/about">About/Result</Link></li>&nbsp;&nbsp;
+          <li className="quiz"><Link to="/quiz">Quiz</Link></li>&nbsp;&nbsp;
+          <li className="create"><Link to="/create">Create</Link></li>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/about" component={About}></Route>
+          <Route path="/quiz" component={Quiz}></Route>
+          <Route path="/create" component={Create}></Route>
+          <Route path="/*" component={Errors}></Route>
+         </ul>
+       </div>
+      </Router>
       
     );
   }
